@@ -72,12 +72,6 @@ public class CursoService {
         return new CursoResponseDTO(curso.getId(), curso.getNome(), curso.getDescricao(), curso.isAtivo());
     }
 
-    public void alterarStatus (Long id, boolean ativo){
-        Curso curso = buscarPorId(id);
-        curso.setAtivo(ativo);
-        cursoRepository.save(curso);
-    }
-
     public void deletar(Long id) {
         Curso curso = buscarPorId(id);
         cursoRepository.delete(curso);

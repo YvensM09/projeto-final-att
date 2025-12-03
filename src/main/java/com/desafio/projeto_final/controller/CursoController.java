@@ -45,12 +45,6 @@ public class CursoController {
         return service.atualizar(id, dto);
     }
 
-    @PatchMapping("/{id}/status")
-    public String alterarStatus(@PathVariable Long id, @RequestParam boolean ativo){
-        service.alterarStatus(id, ativo);
-        return ativo ? "Curso ativado": "Curso desativdo";
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deletar(@PathVariable Long id) {
         service.deletar(id);
