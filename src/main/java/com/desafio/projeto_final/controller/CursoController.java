@@ -35,13 +35,13 @@ public class CursoController {
     }
 
     @GetMapping("/{id}")
-    public Curso buscarPorId (@PathVariable Long id){
-        return service.buscarPorId(id);
+    public ResponseEntity<CursoDetailsResponseDTO> buscarPorId (@PathVariable Long id){
+        CursoDetailsResponseDTO dto = service.buscarCursoDetailsPorId(id);
+        return ResponseEntity.ok(dto);
     }
 
     @PutMapping("/{id}")
-    public CursoResponseDTO
-    atualizar (@PathVariable Long id, @RequestBody CursoRequestDTO dto){
+    public CursoResponseDTO atualizar (@PathVariable Long id, @RequestBody CursoRequestDTO dto){
         return service.atualizar(id, dto);
     }
 
